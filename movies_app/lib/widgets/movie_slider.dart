@@ -16,7 +16,19 @@ class MovieSlider extends StatelessWidget {
               'Populares',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-          )
+          ),
+          Expanded(
+              child: ListView.builder(
+                  itemCount: 20,
+                  itemBuilder: (_, int index) {
+                    return Container(
+                      width: 130,
+                      height: 190,
+                      color: Colors.green,
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    );
+                  }))
         ],
       ),
     );
