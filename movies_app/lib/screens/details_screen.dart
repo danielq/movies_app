@@ -5,12 +5,19 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: cambiar por una instancia movie
+    final String movie =
+        ModalRoute.of(context)?.settings.arguments.toString() ?? 'no-movie';
     return Scaffold(
-      body: Container(
-        child: Center(
-          child: Text('Details screen'),
-        ),
-      ),
-    );
+        body: CustomScrollView(
+      slivers: [_CustomAppBar()],
+    ));
+  }
+}
+
+class _CustomAppBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
