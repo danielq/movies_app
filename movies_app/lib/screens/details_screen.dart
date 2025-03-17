@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
@@ -12,7 +13,9 @@ class DetailsScreen extends StatelessWidget {
         body: CustomScrollView(
       slivers: [
         _CustomAppBar(),
-        SliverList(delegate: SliverChildListDelegate([_PosterAndTitle()]))
+        SliverList(
+            delegate: SliverChildListDelegate(
+                [_PosterAndTitle(), _Overview(), CastingCards()]))
       ],
     ));
   }
@@ -60,8 +63,55 @@ class _PosterAndTitle extends StatelessWidget {
               image: NetworkImage('https://placehold.jp/300x400.png'),
               height: 150,
             ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Movie.title',
+                style: textTheme.headlineLarge,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+              ),
+              Text(
+                'Movie.originalTitle',
+                style: textTheme.titleMedium,
+                overflow: TextOverflow.ellipsis,
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.star_outline,
+                    size: 18,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(width: 5),
+                  Text(
+                    'Movie.voteAverage',
+                    style: textTheme.bodyMedium,
+                  )
+                ],
+              )
+            ],
           )
         ],
+      ),
+    );
+  }
+}
+
+class _Overview extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      child: Text(
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        textAlign: TextAlign.justify,
+        style: Theme.of(context).textTheme.labelMedium,
       ),
     );
   }
