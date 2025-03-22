@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MovieSlider extends StatelessWidget {
+  const MovieSlider({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 250,
       child: Column(
